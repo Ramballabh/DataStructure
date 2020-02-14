@@ -48,9 +48,22 @@ public class SinglyLinkedList<E> implements SinglyADT<E> {
         size--;
     }
 
+    private void removeAfter(Node<E> node) {
+        node.next = node.next.next;
+        size--;
+    }
+
+    public void remove(int index, E item) {
+        if (index == 0)
+            throw new IndexOutOfBoundsException(Integer.toString(size));
+        else if (index == 1) {
+            removeFirst();
+        } else
+            removeAfter(getNode(index - 1));
+    }
+
     @Override
     public void remove(E item) {
-
 
     }
 
