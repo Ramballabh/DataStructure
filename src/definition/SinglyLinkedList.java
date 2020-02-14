@@ -23,8 +23,22 @@ public class SinglyLinkedList<E> implements SinglyADT<E> {
         size++;
     }
 
+    private void addAfter(Node<E> node, E item) {
+        Node<E> node1 = new Node<>(item, node.next);
+        node.next = node1;
+    }
+
+    public void add(int index, E item) {
+        if (index == 0) {
+            addFirst(item);
+        } else {
+            addAfter(getNode(index - 1), item);
+        }
+    }
+
     @Override
     public void add(E item) {
+        add(size, item);
 
     }
 
