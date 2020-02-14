@@ -6,6 +6,18 @@ public class SinglyLinkedList<E> implements SinglyADT<E> {
     private int size = 0;
     private Node<E> head = null;
 
+    private Node<E> getNode(int index) {
+        Node<E> response = head;
+        if (index < 0 && index > size) {
+            throw new IndexOutOfBoundsException(Integer.toString(index));
+        } else {
+            for (int i = 0; i < index && head != null; i++) {
+                response = response.next;
+            }
+        }
+        return response;
+    }
+
     @Override
     public void add(E item) {
 
