@@ -26,6 +26,7 @@ public class SinglyLinkedList<E> implements SinglyADT<E> {
     private void addAfter(Node<E> node, E item) {
         Node<E> node1 = new Node<>(item, node.next);
         node.next = node1;
+        size++;
     }
 
     public void add(int index, E item) {
@@ -42,8 +43,14 @@ public class SinglyLinkedList<E> implements SinglyADT<E> {
 
     }
 
+    private void removeFirst() {
+        head = head.next;
+        size--;
+    }
+
     @Override
     public void remove(E item) {
+
 
     }
 
