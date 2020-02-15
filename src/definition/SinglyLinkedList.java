@@ -48,6 +48,7 @@ public class SinglyLinkedList<E> implements SinglyADT<E> {
             size--;
         }
     }
+
     private void removeAfter(Node<E> node) {
         if (node.next == null) {
             throw new IndexOutOfBoundsException(Integer.toString(size));
@@ -57,23 +58,30 @@ public class SinglyLinkedList<E> implements SinglyADT<E> {
         }
     }
 
-    public void remove(int index, E item) {
-        if (index == 0)
+    public void remove(int index) {
+        if (index < 0 && index > size)
             throw new IndexOutOfBoundsException(Integer.toString(size));
-        else if (index == 1) {
+        else if (index == 0) {
             removeFirst();
         } else
-            removeAfter(getNode(index - 1));
+            removeAfter(getNode(index - 2));
     }
 
     @Override
-    public void remove(E item) {
-        remove(size, item);
+    public void remove() {
+        remove(size);
 
     }
 
     @Override
     public int search(E item) {
+        Node<E> temp = head;
+        for (int i = 0; i < size; i++) {
+            E data = temp.getData();
+            if (item == data)
+                return i + 1;
+            temp = temp.getNext();
+        }
         return 0;
     }
 
@@ -91,7 +99,7 @@ public class SinglyLinkedList<E> implements SinglyADT<E> {
             response = response.getNext();
             System.out.print(data + (i < size - 1 ? "," : ""));
         }
-        System.out.print("[");
+        System.out.println("]");
     }
 
     private static class Node<E> {
