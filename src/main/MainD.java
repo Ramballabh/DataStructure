@@ -9,5 +9,7 @@ public class MainD {
         list.add(6);
         list.add(2);
         list.print();
+        list.remove();
+        list.print();
     }
 }
