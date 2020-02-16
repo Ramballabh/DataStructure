@@ -27,14 +27,17 @@ public class DoublyLinkedList<E> implements DoublyADT<E> {
     }
 
     private void addAfter(Node<E> node, E item) {
-        if (node.next != null) {
+        if (node.next == null) {
+            Node<E> node1 = new Node<>(tail, node, item);
+            node.next = node1;
+            tail = node1;
+        } else {
             Node<E> node1 = new Node<>(node.next, node, item);
             node.next.previous = node1;
             node.next = node1;
-            size++;
         }
+        size++;
     }
-
     public void add(int index, E item) {
         if (index < 0 && index > size) {
             throw new IndexOutOfBoundsException(Integer.toString(index));
