@@ -11,5 +11,6 @@ public class MainD {
         list.print();
         list.remove();
         list.print();
+        System.out.println(list.search(6));
     }
 }
