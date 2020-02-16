@@ -1,4 +1,4 @@
 package adt;
 
-public interface DoublyADT {
+public interface DoublyADT<E> {
 }
