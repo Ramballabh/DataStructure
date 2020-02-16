@@ -33,12 +33,20 @@ public class DoublyLinkedList<E> implements DoublyADT<E> {
             node.next = node1;
             size++;
         }
+    }
 
+    public void add(int index, E item) {
+        if (index < 0 && index > size) {
+            throw new IndexOutOfBoundsException(Integer.toString(index));
+        } else if (index == 0)
+            addFirst(item);
+        else
+            addAfter(getNode(index - 2), item);
     }
 
     @Override
-    public boolean add(E item) {
-        return false;
+    public void add(E item) {
+        add(size, item);
     }
 
     @Override
@@ -53,6 +61,11 @@ public class DoublyLinkedList<E> implements DoublyADT<E> {
 
     @Override
     public void sort() {
+
+    }
+
+    @Override
+    public void print() {
 
     }
 

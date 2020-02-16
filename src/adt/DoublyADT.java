@@ -7,7 +7,7 @@ public interface DoublyADT<E> {
      * @param item the item to be added in the list.
      * @return true when the item adds to the list.
      */
-    boolean add(E item);
+    void add(E item);
 
     /**
      * This method will remove an item from the linked list.
@@ -34,5 +34,6 @@ public interface DoublyADT<E> {
      * I am not making the print method here because the definition class will simply
      * override the Object class's toString() method and define the functionality there.
      * */
+    void print();
 
 }
