@@ -87,7 +87,6 @@ public class SinglyLinkedList<E> implements SinglyADT<E> {
 
     @Override
     public void sort() {
-
     }
 
     @Override
