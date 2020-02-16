@@ -66,7 +66,13 @@ public class DoublyLinkedList<E> implements DoublyADT<E> {
 
     @Override
     public void print() {
-
+        System.out.print("[");
+        Node<E> response = head;
+        for (int i = 0; i < size; i++) {
+            E data = response.getData();
+            System.out.print(data + (i < size - 1 ? "," : ""));
+            response = response.getNext();
+        }
     }
 
     private static class Node<E> {
