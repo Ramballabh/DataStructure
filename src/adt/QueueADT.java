@@ -16,6 +16,4 @@ public interface QueueADT<E> {
     E poll();
 
     E element();
-
-    void print();
 }
