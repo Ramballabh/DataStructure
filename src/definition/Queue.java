@@ -16,7 +16,14 @@ public class Queue<E> implements QueueADT<E> {
 
     @Override
     public void add(E item) {
-
+        if (size == 0) {
+            addFirst(item);
+        } else {
+            Node<E> node = new Node<E>(item, rear.next, rear);
+            rear.next = node;
+            rear = node;
+            size++;
+        }
     }
 
     @Override
