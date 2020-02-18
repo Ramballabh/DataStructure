@@ -9,7 +9,7 @@ public class MainQ {
         queue.add(6);
         queue.add(10);
         System.out.println(queue);
-        queue.peek();
+        System.out.println(queue.peek());
         queue.remove();
         System.out.println(queue);
 
